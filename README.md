@@ -80,5 +80,18 @@ $ cd nerd-fonts
 $ ./install.sh
 ```
 #### Configure terminal font
-- Goto your terminal's font configuration and select a monospace font from nerd-fonts installed fonts (e.g. Hack)
+- Goto your terminal's font configuration and select a **monospace** font from nerd-fonts installed fonts (e.g. Hack)
 - Close Terminal and open it again
+
+
+# Usage
+## Keymaps
+
+Remember these are my Keymaps, there are a plenty of Vim/NeoVim Keymaps and also lots of plugin specific default mappings which you can use or change as you wish 
+
+## Floating Terminal 
+
+## Telescope
+
+## DAP 
+

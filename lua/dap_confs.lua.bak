@@ -125,7 +125,7 @@ end
 
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/usr/bin/lldb-vscode-14', 
+  command = '/usr/lib/llvm-14/bin/lldb-vscode', 
   name = "lldb"
 }
 
