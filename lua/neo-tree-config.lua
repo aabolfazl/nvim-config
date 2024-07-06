@@ -1,5 +1,5 @@
 require('neo-tree').setup({
-        close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+        close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
         popup_border_style = "rounded",
         enable_git_status = true,
         enable_diagnostics = true,
@@ -270,3 +270,11 @@ require('neo-tree').setup({
 vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
 vim.keymap.set("n", "\\", ":Neotree reveal<CR>", {})
 vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    command = "set nornu nonu | Neotree toggle",
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+      command = "set rnu nu",
+})
