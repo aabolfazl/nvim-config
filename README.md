@@ -84,14 +84,6 @@ $ ./install.sh
 - Close Terminal and open it again
 
 
-# Usage
 ## Keymaps
 
-Remember these are my Keymaps, there are a plenty of Vim/NeoVim Keymaps and also lots of plugin specific default mappings which you can use or change as you wish 
-
-## Floating Terminal 
-
-## Telescope
-
-## DAP 
-
+Refer to: [Key Bindings](https://github.com/ariyan-eghbal/nvim-config/blob/master/keys.md)
