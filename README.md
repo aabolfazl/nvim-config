@@ -65,7 +65,7 @@ Use any plugin manager you like, I used [packer](https://github.com/wbthomason/p
  ```bash
  $ rm -rf ~/.config/nvim/
  $ rm -rf ~/.local/share/nvim/
- $ git clone https://github.com/RYNEQ/nvim-config ~/.config/nvim/
+ $ git clone https://github.com/ariyan-eghbal/nvim-config/ ~/.config/nvim/
  ```
 
  ### Install plugins

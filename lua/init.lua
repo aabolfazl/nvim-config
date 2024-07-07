@@ -19,6 +19,7 @@ require('packer').startup(function()
   use 'phaazon/hop.nvim'
   use 'akinsho/nvim-toggleterm.lua'
   use 'windwp/nvim-autopairs'
+  use 'nvim-neotest/nvim-nio'
 --  use 'kyazdani42/nvim-tree.lua'
   use({"nvim-neo-tree/neo-tree.nvim",
        requires = {
