@@ -36,13 +36,34 @@ local lazygit = Terminal:new({
     vim.cmd("startinsert!")
   end,
 })
+local yazi = Terminal:new({
+  cmd = "yazi",
+  --dir = "git_dir",
+  direction = "float",
+  float_opts = {
+    border = "double",
+  },
+  -- function to run on opening the terminal
+  on_open = function(term)
+    vim.cmd("startinsert!")
+    vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
+  end,
+  -- function to run on closing the terminal
+  on_close = function(term)
+    vim.cmd("startinsert!")
+  end,
+})
 
 function _lazygit_toggle()
   lazygit:toggle()
 end
+function _yazi_toggle()
+  yazi:toggle()
+end
 
 vim.api.nvim_set_keymap('n', '<leader>td', ':ToggleTerm<CR>', { silent = false })
 vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>ty", "<cmd>lua _yazi_toggle()<CR>", {noremap = true, silent = true})
 
 vim.g.floaterm_winblend = 8
 vim.g.floaterm_width = 0.9

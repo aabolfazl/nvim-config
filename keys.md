@@ -25,6 +25,13 @@
 | Normal, Visual | <kbd>\<leader\>dp</kbd> | - |
 | Normal | <kbd>\<leader\>df</kbd> | - |
 | Normal | <kbd>\<leader\>ds</kbd> | - |
+| Normal | <kbd>C-]</kbd> | Jump to definition (nvim tags) |
+| Normal | <kbd>C-o</kbd> | Jump to previous position |
+| Normal | <kbd>C-i</kbd> | Jump to next position |
+| Normal | <kbd>g;</kbd> | Jump to previous change position |
+| Normal | <kbd>g,</kbd> | Jump to next change position |
+| Normal | <kbd>gi</kbd> | Put cursor in last position it was in insert mode |
+| Normal | :jumps | Show list of jumps |
 | Normal | <kbd>\<leader\>e</kbd> | Open diagonistics floatbox for current item (LSP) |
 | Normal | <kbd>[d</kbd> | Previous diagonistic (LSP) |
 | Normal | <kbd>]d</kbd> | Next diagonistic (LSP) |
