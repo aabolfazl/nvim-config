@@ -17,6 +17,7 @@ require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim' 
   use 'phaazon/hop.nvim'
+  use 'nvim-neotest/nvim-nio'
   use 'akinsho/nvim-toggleterm.lua'
   use 'windwp/nvim-autopairs'
 --  use 'kyazdani42/nvim-tree.lua'

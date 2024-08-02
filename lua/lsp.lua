@@ -1,23 +1,32 @@
---require'lspconfig'.pyright.setup{}
---require'lspconfig'.clangd.setup{}
---require'lspconfig'.rust_analyzer.setup{}
-
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
+-- Basic LSP and keymap setup
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
+local builtin = require('telescope.builtin')
+
+-- Function to check if definition is found, otherwise fallback to Telescope
+local function goto_definition_or_fallback()
+  local params = vim.lsp.util.make_position_params()
+  vim.lsp.buf_request(0, 'textDocument/definition', params, function(_, result, ctx, _)
+    if result == nil or vim.tbl_isempty(result) then
+      require('telescope.builtin').lsp_definitions()
+    else
+      vim.lsp.util.jump_to_location(result[1])
+    end
+  end)
+end
+
+-- Global Telescope key mappings
+vim.keymap.set('n', 'gd', builtin.lsp_definitions, { noremap = true, silent = true, desc = '[G]oto [D]efinition' })
+vim.keymap.set('n', 'gr', builtin.lsp_references, { noremap = true, silent = true, desc = '[G]oto [R]eferences' })
+
+-- On attach function to set key mappings when LSP attaches to buffer
 local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -49,7 +58,6 @@ end
 
 require('lspconfig')['clangd'].setup{
   flags = {
-      -- This will be the default in neovim 0.7+
       debounce_text_changes = 150,
   },
   cmd = {'clangd', '--query-driver=/usr/bin/gcc'},
@@ -57,5 +65,5 @@ require('lspconfig')['clangd'].setup{
   on_attach = on_attach,
   --settings = servers[server_name],
   --filetypes = (servers[server_name] or {}).filetypes,
-  filetypes = {"c", "cpp", "h", "hpp"}
+  filetypes = {"c", "cpp", "h", "hpp","cc"}
 }
