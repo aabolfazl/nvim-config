@@ -35,6 +35,15 @@ $ sudo apt install clang-14 clangd-14
 $ sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-14 100
 ```
 
+### Live grep
+for `telescop` live grep we need `ripgrep`:
+```bash
+sudo apt-get install ripgrep
+```
+mac
+```bash
+brew install ripgrep
+```
 ### rust-analyzer
 for `rust` support install [rust-analyzer](https://rust-analyzer.github.io/manual.html#rust-analyzer-language-server-binary):
 ```bash
@@ -65,7 +74,7 @@ Use any plugin manager you like, I used [packer](https://github.com/wbthomason/p
  ```bash
  $ rm -rf ~/.config/nvim/
  $ rm -rf ~/.local/share/nvim/
- $ git clone https://github.com/ariyan-eghbal/nvim-config/ ~/.config/nvim/
+ $ git clone https://github.com/aabolfazl/nvim-config.git/ ~/.config/nvim/
  ```
 
  ### Install plugins
