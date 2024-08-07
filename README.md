@@ -34,6 +34,12 @@ Note: change `14` with your desired version of `clang`
 $ sudo apt install clang-14 clangd-14
 $ sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-14 100
 ```
+#### Lsp for ARM machines
+Since clangd had a [problem](https://github.com/clangd/clangd/issues/1582) with the arm arch, you need to add this into the .clangd of your project root:
+```bash
+CompileFlags:
+  Remove: [-march=*, -mabi=*, -mcpu=*]
+```
 
 ### Live grep
 for `telescop` live grep we need `ripgrep`:
