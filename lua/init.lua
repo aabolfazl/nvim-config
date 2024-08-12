@@ -12,7 +12,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
-  
+  use 'Mofiqul/dracula.nvim'  
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim' 
@@ -36,7 +36,7 @@ require('packer').startup(function()
   --use 'ryanoasis/vim-devicons'
   --use 'kyazdani42/nvim-web-devicons' 
   use 'akinsho/bufferline.nvim'
-  use 'github/copilot.vim'
+  --use 'github/copilot.vim'
   use 'mfussenegger/nvim-dap'
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use 'mfussenegger/nvim-dap-python'
