@@ -50,12 +50,12 @@ autocmd FileType c,h,cpp,hpp nnoremap <buffer> <silent> <leader>gh :ClangdSwitch
 let g:indentLine_char = '│'
 
 
-let g:airline_theme = 'dark'
+let g:airline_theme = 'random'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-colorscheme dracula-soft
+colorscheme gruvbox
 set noshowmode
 
 
